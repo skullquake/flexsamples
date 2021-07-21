@@ -45,6 +45,7 @@ clean:
 	-rm -f *.c
 	-rm -f $(TARGET)
 	-rm -f $(TESTBUILD)
+	-rm -f ./bin/rvtest
 
 uninstall:
 	-rm -f $(INSTALLDIR)/$(TARGET)
@@ -60,4 +61,6 @@ build:
 test:
 	bison -d -o parser.c parser.y
 	flex -Cf -o scanner.c scanner.l
-	gcc -g $(OBJECTS) $(CFLAGS) -o rvtest
+	gcc -g $(OBJECTS) $(CFLAGS) -o ./bin/rvtest
+run:
+	$(TARGET)
